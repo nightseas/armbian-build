@@ -1,0 +1,14 @@
+name: Build Orange Pi Zero 3 server image                                                                                                                                                           
+on:                                                                                                                                                                                           
+  workflow_dispatch:                                                                                                                                                                          
+jobs:                                                                                                                                                                                         
+  build-armbian:                                                                                                                                                                              
+    runs-on: ubuntu-latest                                                                                                                                                                    
+    steps:                                                                                                                                                                                    
+      - uses: armbian/build@main                                                                                                                                                              
+        with:                                                                                                                                                                                 
+          armbian_token: "${{ secrets.GITHUB_TOKEN }}"  # GitHub token                                                                                                                        
+          armbian_release: "bookworm"                        # userspace                                                                                                                      
+          armbian_target: "build"                        # build=image, kernel=kernel                                                                                                         
+          armbian_board: "orangepizero3"                   # build target                                                                                                                     
+          armbian_ui: "server" 
